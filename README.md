@@ -5,7 +5,7 @@
 
 ## - How to use it -
 
-#### 1- git clone https://github.com/Node-23/bet_app.git - to clone the repo
+#### 1- git clone https://github.com/Node-23/Money_App.git - to clone the repo
 
 ## - Technologies used -
 
