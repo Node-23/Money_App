@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Money app</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register"><a href="http://www.google.com">Register</a></string>
+    <string name="forgot_password"><a href="http://www.google.com">Forgot Password?</a></string>
+    <string name="user_profile_image">User Profile Image</string>
+    <string name="app_icon">App Icon</string>
+    <string name="money_text_background">Money text background</string>
+    <string name="money_example">R$ 51,24</string>
+    <string name="icons_background">Icons Background</string>
+    <string name="back_icon">Back Icon</string>
+    <string name="add_icon">Add icon</string>
+    <string name="help_icon">Help Icon</string>
+    <string name="add_expense_title">Add Expense</string>
+    <string name="value">Value</string>
+    <string name="expense_description">Expense description</string>
+    <string name="since">Since</string>
+    <string name="date_example">01/01/2022</string>
+    <string name="money_spend_monthly">Money spend monthly</string>
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="off">Off</string>
+    <string name="add_expense_limit">Add expense limit</string>
+    <string name="settingsTooltip">Display a notification when you expend more than the limit</string>
+    <string name="how_to_use_it"><a href="http://www.google.com">How to use it</a></string>
+    <string name="or">Or</string>
+    <string-array name="TypeComboBox">
+        <item>Select an Item</item>
+        <item>Money</item>
+        <item>Debit</item>
+        <item>Credit</item>
+        <item>PIX</item>
+    </string-array>
+    <string-array name="TypeOfExpenseComboBox">
+        <item>Select an Item</item>
+        <item>Debt</item>
+        <item>Study</item>
+        <item>Work</item>
+        <item>Entertainment</item>
+        <item>Other</item>
+    </string-array>
+    <string name="register_title">Register</string>
+    <string name="complete_name">Complete name*</string>
+    <string name="email">Email*</string>
+    <string name="reasonText">Please tell us the reason you download this app</string>
+    <string name="confirm_password">Confirm Password*</string>
+    <string name="details">Details</string>
+    <string name="date">Date</string>
+    <string name="type">Type</string>
+    <string name="money_text">Money</string>
+    <string name="type_of_expense">Type of expense</string>
+    <string name="type_of_expense_example">Work</string>
+    <string name="monthly_expense_percentage">Monthly expense %</string>
+    <string name="monthly_expense_percentage_example">12%</string>
+    <string name="help_text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id eleifend ligula. Nunc fringilla, diam eu venenatis facilisis, quam est aliquam ipsum, id efficitur tortor est a ex. Nullam ac mollis urna, id varius turpis. Nullam nec porta sem. In hac habitasse platea dictumst. Vestibulum vel nulla vestibulum, blandit sapien sed, blandit metus. In nec dui eget sapien aliquet porttitor. Sed pharetra imperdiet congue. Donec luctus sapien est, efficitur ultricies ipsum interdum sit amet. Suspendisse vel ipsum eu justo tempus sagittis id vel ante. Praesent luctus justo tortor, et vestibulum ante auctor aliquam. In sodales nibh nibh, non lobortis nulla volutpat eget.
+    </string>
+    <string name="description_example">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id eleifend ligula. Nunc fringilla, diam eu venenatis facilisis, quam est aliquam ipsum, id efficitur tortor est a ex. Nullam ac mollis urna, id varius turpis. Nullam nec porta sem. In hac habitasse platea dictumst. Vestibulum vel nulla vestibulum, blandit sapien sed, blandit metus. In nec dui eget sapien aliquet porttitor. Sed pharetra imperdiet congue. Donec luctus sapien est, efficitur ultricies ipsum interdum sit amet.
+    </string>
+    <string name="historic">Historic</string>
+    <string name="register_username">Username*</string>
+    <string name="register_password">Password*</string>
+    <string name="loading">Loading</string>
+</resources>
