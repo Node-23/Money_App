@@ -76,6 +76,7 @@ public class AddExpense extends AppCompatActivity {
         }else{
             expense = new Expense(user.getId(), value, type, description, expenseType, date);
         }
+        //TODO: Add this expense in app user object
         return ConvertToJson(expense);
     }
 

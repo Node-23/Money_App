@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/historicDateText"
             android:layout_margin="20dp"
             android:textSize="20sp"
             android:text="@string/date_example"
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:id="@+id/typeOfExpenseText"
             android:layout_margin="20dp"
             android:textSize="20sp"
             android:text="@string/type_of_expense_example"
@@ -27,6 +29,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:id="@+id/valueText"
             android:layout_margin="20dp"
             android:textSize="20sp"
             android:text="@string/money_example"
