@@ -51,7 +51,7 @@
     <string name="type">Type</string>
     <string name="money_text">Money</string>
     <string name="type_of_expense">Type of expense</string>
-    <string name="type_of_expense_example">Work</string>
+    <string name="type_of_expense_example">Entertainment</string>
     <string name="monthly_expense_percentage">Monthly expense %</string>
     <string name="monthly_expense_percentage_example">12%</string>
     <string name="help_text">

@@ -2,6 +2,7 @@ package com.rubick.moneyapp.Model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User implements Serializable {
@@ -21,6 +22,8 @@ public class User implements Serializable {
     private String memberSince;
 
     private BigDecimal avaregeSpend;
+
+    private ArrayList<Expense> expenses;
 
     public User(String name, String username, String email, String password, String memberSince) {
         this.name = name;
@@ -111,5 +114,13 @@ public class User implements Serializable {
 
     public void setAvaregeSpend(BigDecimal avaregeSpend) {
         this.avaregeSpend = avaregeSpend;
+    }
+
+    public ArrayList<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(ArrayList<Expense> expenses) {
+        this.expenses = expenses;
     }
 }

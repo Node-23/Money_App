@@ -1,8 +1,9 @@
 package com.rubick.moneyapp.Model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class Expense implements Serializable {
 
@@ -10,26 +11,39 @@ public class Expense implements Serializable {
     private long userId;
     private BigDecimal value;
     private Type type;
-    private BigDecimal mensalPercentage;
+    private BigDecimal monthlyPercentage;
     private String description;
-    private TypeOfExpense typeOfExpenseType;
+    private TypeOfExpense typeOfExpense;
     private String date;
 
-    public Expense(long userId, BigDecimal value, Type type, String description, TypeOfExpense typeOfExpenseType, String date) {
+    public Expense(long userId, BigDecimal value, Type type, String description, TypeOfExpense typeOfExpense, String date) {
         this.userId = userId;
         this.value = value;
         this.type = type;
         this.description = description;
-        this.typeOfExpenseType = typeOfExpenseType;
+        this.typeOfExpense = typeOfExpense;
         this.date = date;
     }
 
-    public Expense(long userId, BigDecimal value, Type type, TypeOfExpense typeOfExpenseType, String date) {
+    public Expense(long userId, BigDecimal value, Type type, TypeOfExpense typeOfExpense, String date) {
         this.userId = userId;
         this.value = value;
         this.type = type;
-        this.typeOfExpenseType = typeOfExpenseType;
+        this.typeOfExpense = typeOfExpense;
         this.date = date;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", value=" + value +
+                ", type=" + type +
+                ", typeOfExpense=" + typeOfExpense +
+                ", date='" + date + '\'' +
+                '}';
     }
 
     public long getId() {
@@ -64,12 +78,12 @@ public class Expense implements Serializable {
         this.type = type;
     }
 
-    public BigDecimal getMensalPercentage() {
-        return mensalPercentage;
+    public BigDecimal getMonthlyPercentage() {
+        return monthlyPercentage;
     }
 
-    public void setMensalPercentage(BigDecimal mensalPercentage) {
-        this.mensalPercentage = mensalPercentage;
+    public void setMonthlyPercentage(BigDecimal monthlyPercentage) {
+        this.monthlyPercentage = monthlyPercentage;
     }
 
     public String getDescription() {
@@ -80,12 +94,12 @@ public class Expense implements Serializable {
         this.description = description;
     }
 
-    public TypeOfExpense getTypeOfExpenseType() {
-        return typeOfExpenseType;
+    public TypeOfExpense getTypeOfExpense() {
+        return typeOfExpense;
     }
 
-    public void setTypeOfExpenseType(TypeOfExpense typeOfExpenseType) {
-        this.typeOfExpenseType = typeOfExpenseType;
+    public void setTypeOfExpense(TypeOfExpense typeOfExpense) {
+        this.typeOfExpense = typeOfExpense;
     }
 
     public String getDate() {
