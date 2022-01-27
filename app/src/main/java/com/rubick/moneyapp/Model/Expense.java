@@ -1,5 +1,7 @@
 package com.rubick.moneyapp.Model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -29,6 +31,19 @@ public class Expense implements Serializable {
         this.type = type;
         this.typeOfExpense = typeOfExpense;
         this.date = date;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", value=" + value +
+                ", type=" + type +
+                ", typeOfExpense=" + typeOfExpense +
+                ", date='" + date + '\'' +
+                '}';
     }
 
     public long getId() {

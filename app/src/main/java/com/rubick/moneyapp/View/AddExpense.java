@@ -7,7 +7,6 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.rubick.moneyapp.Model.Expense;
-import com.rubick.moneyapp.Model.Login;
 import com.rubick.moneyapp.Model.Type;
 import com.rubick.moneyapp.Model.TypeOfExpense;
 import com.rubick.moneyapp.Model.User;
@@ -30,7 +28,7 @@ import com.rubick.moneyapp.Service.ServerActions;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
-public class AddExpense extends AppCompatActivity {
+public class AddExpense extends AppCompatActivity{
 
     private Spinner typeSpinner;
     private Spinner typeOfExpenseSpinner;
@@ -60,11 +58,13 @@ public class AddExpense extends AppCompatActivity {
         String url = "http://10.0.2.2:8080/api/expense/register";
         Context context = getApplicationContext();
         //TODO: Fazer uma função que ativa o loadpopup enquanto espera o PostRequest terminar
-        ServerActions.PostRequest(url, data, AddExpense.this, context, successMessage, errorMessage);
+        ServerActions.PostRequest(url, data, AddExpense.this, context, successMessage, errorMessage, false);
     }
 
     private String CreateExpense(){
-        BigDecimal value = BigDecimal.valueOf(Long.parseLong(valueInput.getText().toString()));
+        int decimalPlaces = 2;
+        BigDecimal value = BigDecimal.valueOf(Float.parseFloat(valueInput.getText().toString()));
+        value = value.setScale(decimalPlaces, BigDecimal.ROUND_HALF_UP);
         String description = descriptionInput.getText().toString();
         Type type = getType(typeSpinner.getSelectedItem().toString());
         TypeOfExpense expenseType = getTypeOfExpense(typeOfExpenseSpinner.getSelectedItem().toString());
@@ -76,13 +76,21 @@ public class AddExpense extends AppCompatActivity {
         }else{
             expense = new Expense(user.getId(), value, type, description, expenseType, date);
         }
-        //TODO: Add this expense in app user object
+        //TODO: A despesa deve ser atribuída ao user local depois de receber um sucesso do servidor ao criar a expense
+        user.getExpenses().add(expense);
+
+        PreferenceData.saveUser(getApplicationContext(), ConvertUserToJson(user));
         return ConvertToJson(expense);
     }
 
     private String ConvertToJson(Expense expense) {
         Gson gson = new Gson();
         return gson.toJson(expense);
+    }
+
+    private String ConvertUserToJson(User user) {
+        Gson gson = new Gson();
+        return gson.toJson(user);
     }
 
     private Type getType(String typeString){

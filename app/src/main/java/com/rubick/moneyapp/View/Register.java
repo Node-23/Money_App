@@ -83,7 +83,7 @@ public class Register extends AppCompatActivity {
         String data = ConvertToJson(user);
         String url = "http://10.0.2.2:8080/api/user/register";
         Context context = getApplicationContext();
-        ServerActions.PostRequest(url, data, Register.this, context, successMessage, errorMessage);
+        ServerActions.PostRequest(url, data, Register.this, context, successMessage, errorMessage, false);
         //PostUSer(data);
     }
 

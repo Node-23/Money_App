@@ -11,9 +11,7 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.rubick.moneyapp.Model.ServerResponse;
-import com.rubick.moneyapp.Model.User;
 import com.rubick.moneyapp.View.LoadPopup;
-import com.rubick.moneyapp.View.MainActivity;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -28,7 +26,31 @@ import okhttp3.Response;
 
 public class ServerActions {
 
-    public static void PostRequest(String url, String data, Activity view, Context context, String successMessage, String appErrorMessage){
+    public static void GetRequest(String url, Context context) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                String mMessage = e.getMessage().toString();
+                Log.w("RESPONSE_DATA", mMessage);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                String data = response.body().string();
+                Log.d("RESPONSE_DATA", data);
+                PreferenceData.saveExpense(context, data);
+            }
+        });
+    }
+
+    public static void PostRequest(String url, String data, Activity view, Context context, String successMessage, String appErrorMessage, boolean saveUser) {
         LoadPopup loadPopup = new LoadPopup(view);
         loadPopup.StartLoadScreen();
         OkHttpClient client = new OkHttpClient();
@@ -47,15 +69,16 @@ public class ServerActions {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     String serverResponse = Objects.requireNonNull(response.body()).string();
                     Log.d("TESTE", "SUCESSO NO SERVIDOR: " + serverResponse);
-                    PreferenceData.saveUer(context, serverResponse);
+                    if (saveUser) {
+                        PreferenceData.saveUser(context, serverResponse);
+                    }
                     loadPopup.DismissLoadScreen();
                     ServerSuccess(successMessage, context);
                     //TODO: Sucess message must come from server
-                }
-                else{
+                } else {
                     Gson gson = new Gson();
                     ServerResponse serverResponse = gson.fromJson(response.body().string(), ServerResponse.class);
                     Log.d("TESTE", "ERRO NO SERVIDOR: " + serverResponse.getMessage());
@@ -68,7 +91,7 @@ public class ServerActions {
     }
 
 
-    private static void ServerError(String serverResponse, Context context){
+    private static void ServerError(String serverResponse, Context context) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
@@ -77,7 +100,7 @@ public class ServerActions {
         });
     }
 
-    private static void AppError(String message, Context context){
+    private static void AppError(String message, Context context) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
@@ -86,7 +109,7 @@ public class ServerActions {
         });
     }
 
-    private static void ServerSuccess(String message, Context context){
+    private static void ServerSuccess(String message, Context context) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {

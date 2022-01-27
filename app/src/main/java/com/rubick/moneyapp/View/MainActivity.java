@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         String data = ConvertToJson(login);
         String url = "http://10.0.2.2:8080/api/user/login";
         Context context = getApplicationContext();
-        ServerActions.PostRequest(url, data, MainActivity.this, context, successMessage, errorMessage);
+        ServerActions.PostRequest(url, data, MainActivity.this, context, successMessage, errorMessage, true);
     }
 
     private void setItems(){
